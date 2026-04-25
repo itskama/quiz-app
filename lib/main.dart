@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'data/question_repository.dart';
 import 'viewmodels/quiz_view_model.dart';
+import 'ui/screens/onboarding_screen.dart';
 import 'ui/screens/home_screen.dart';
 import 'ui/screens/quiz_screen.dart';
 import 'ui/screens/result_screen.dart';
@@ -40,7 +41,8 @@ class FlutterQuizApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => const HomeScreen(),
+          '/': (context) => const OnboardingScreen(),
+          '/home': (context) => const HomeScreen(),
           '/quiz': (context) => const QuizScreen(),
           '/result': (context) => const ResultScreen(),
         },

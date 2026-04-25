@@ -136,7 +136,7 @@ class _ResultScreenState extends State<ResultScreen> with SingleTickerProviderSt
                         child: OutlinedButton.icon(
                           onPressed: () {
                             viewModel.resetQuiz();
-                            Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+                            Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
                           },
                           icon: const Icon(Icons.home_rounded),
                           label: const Text('Домой'),
