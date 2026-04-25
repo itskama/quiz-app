@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'data/question_repository.dart';
 import 'viewmodels/quiz_view_model.dart';
 import 'ui/screens/home_screen.dart';
@@ -17,11 +18,9 @@ class FlutterQuizApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        // Внедрение зависимости: Репозиторий
         Provider<QuestionRepository>(
           create: (_) => QuestionRepository(),
         ),
-        // Внедрение ViewModel, которая зависит от Репозитория
         ChangeNotifierProvider<QuizViewModel>(
           create: (context) => QuizViewModel(
             repository: context.read<QuestionRepository>(),
@@ -30,9 +29,14 @@ class FlutterQuizApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter Quiz',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          useMaterial3: true,
+        theme: ThemeData.dark(useMaterial3: true).copyWith(
+          scaffoldBackgroundColor: const Color(0xFF0F172A),
+          textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
+          colorScheme: const ColorScheme.dark(
+            primary: Color(0xFF6366F1),
+            secondary: Color(0xFF14B8A6),
+            surface: Color(0xFF1E293B),
+          ),
         ),
         initialRoute: '/',
         routes: {
